@@ -18,8 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     int currentindex;
-    private static final String EXTRA_CURRENT_ITEM=
-            "com.bignerdranch.android.geoquiz.answer_is_true";
+
     TextView textView;
     Question[] questions;
     Question currentQuestion;
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     Button cheat;
     public static Intent newIntent1(Context packageContext,int current_item) {
         Intent i = new Intent(packageContext, MainActivity.class);
-        i.putExtra(EXTRA_CURRENT_ITEM,current_item);
         return i;
     }
 
@@ -41,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            currentindex = getIntent().getIntExtra(EXTRA_CURRENT_ITEM,0);
             trueanswers =0;
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             questions = new Question[]{
@@ -55,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             but2 = findViewById(R.id.button2);
             cheat = findViewById(R.id.cheat);
             textView = findViewById(R.id.text);
-            currentindex = getIntent().getIntExtra(EXTRA_CURRENT_ITEM,0);
             cheat.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
