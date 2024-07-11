@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,19 +20,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    int currentindex;
+    private int currentindex;
 
-    public TextView textView;
-    public List<Question> questions;
-    public Question currentQuestion;
-    public int trueanswers;
-    public Button but1;
-    public Button but2;
-    public Button cheat;
+    private TextView textView;
+    private List<Question> questions;
+    private Question currentQuestion;
+    private int trueAnswers;
+    private Button but1;
+    private Button but2;
+    private Button cheat;
 
     public static Intent newIntent1(Context packageContext, int current_item) {
-        Intent i = new Intent(packageContext, MainActivity.class);
-        return i;
+        return new Intent(packageContext, MainActivity.class);
     }
 
 
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        trueanswers = 0;
+        trueAnswers = 0;
         questions = initQuestions();
         but1 = findViewById(R.id.button1);
         but2 = findViewById(R.id.button2);
@@ -67,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         but1.setOnClickListener(v -> {
             if (currentQuestion.isAnswer()) {
                 toast1.show();
-                trueanswers += 1;
+                trueAnswers += 1;
                 updateQuestion();
             } else {
                 toast2.show();
@@ -78,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         but2.setOnClickListener(v -> {
             if (!currentQuestion.isAnswer()) {
                 toast1.show();
-                trueanswers += 1;
+                trueAnswers += 1;
                 updateQuestion();
             } else {
                 toast2.show();
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             but1.setVisibility(View.GONE);
             but2.setVisibility(View.GONE);
             cheat.setVisibility(View.GONE);
-            textView.setText(trueanswers + "/5");
+            textView.setText(trueAnswers + "/5");
         } else {
             currentindex += 1;
             textView.setText(getString(questions.get(currentindex).getQuestion()));

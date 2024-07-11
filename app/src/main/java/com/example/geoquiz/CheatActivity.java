@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -26,8 +25,8 @@ public class CheatActivity extends AppCompatActivity {
         return i;
     }
 
-    public Button cheatBtn;
-    public TextView cheatText;
+    private Button cheatBtn;
+    private TextView cheatText;
 
 
     @Override
@@ -42,8 +41,8 @@ public class CheatActivity extends AppCompatActivity {
 
         cheatBtn = findViewById(R.id.cheatBtn);
         cheatText = findViewById(R.id.cheatText);
-        cheatText.setText(R.string.cheat_activity);
-        cheatBtn.setText(R.string.show_button);
+        cheatText.setText(R.string.cheat_activity_description);
+        cheatBtn.setText(R.string.cheat_activity_show_answer);
 
         boolean answerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
         cheatBtn.setOnClickListener(new View.OnClickListener() {
@@ -55,5 +54,6 @@ public class CheatActivity extends AppCompatActivity {
                 cheatText.setText("The answer is " + answerIsTrue);
             }
         });
+
     }
 }

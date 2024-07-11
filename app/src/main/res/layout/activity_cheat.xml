@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".CheatActivity">
 
-
     <TextView
         android:id="@+id/cheatText"
         android:layout_width="wrap_content"
@@ -15,8 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/cheatBtn"
@@ -25,9 +23,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cheatText"
-        />
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/cheatText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
